@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.item{
+    padding: 10px;
+}
+.dlt,.ed{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgb(84, 79, 79);
+}
