@@ -69,6 +69,18 @@ let arr = [
 ];
 
 function App() {
+  const [Get,setGet] = useState([]);
+  const category = Object.keys(arr[0]);
+  // const choice = (i) => {
+  //   setGet(
+  //     arr.map.filter(e => e)
+  //   )
+  // }
+  // const checkF = (i) => {
+  //   return Object.keys(i) === 
+  // }
+  const newArr = arr.map(e => e).filter(e => category.map( item => e === item));
+  console.log(newArr)
   const [Item,setItem] = useState(arr);
   const [Sp,setSp] = useState({})
   const [Add,setAdd] = useState(false);

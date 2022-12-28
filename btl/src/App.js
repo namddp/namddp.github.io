@@ -68,6 +68,9 @@ let arr = [
 ];
 
 function App() {
+  const [Get,setGet] = useState([]);
+  const newArr = arr.map(e => e.key);
+  console.log(newArr);
   const [Item,setItem] = useState(arr);
   const [Add,setAdd] = useState(false);
   const select = (ic) => {
