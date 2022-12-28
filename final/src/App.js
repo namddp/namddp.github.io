@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Panel from './components/Panel';
 import {useState} from 'react';
 import Products from './components/Products';
+import Filter from './components/Filter';
 let arr = [
   { 
     id: 0,
@@ -69,23 +70,27 @@ let arr = [
 ];
 
 function App() {
-  const [Get,setGet] = useState([]);
-  const category = Object.keys(arr[0]);
-  // const choice = (i) => {
-  //   setGet(
-  //     arr.map.filter(e => e)
-  //   )
-  // }
-  // const checkF = (i) => {
-  //   return Object.keys(i) === 
-  // }
-  const newArr = arr.map(e => e).filter(e => category.map( item => e === item));
-  console.log(newArr)
   const [Item,setItem] = useState(arr);
   const [Sp,setSp] = useState({})
   const [Add,setAdd] = useState(false);
-  const select = (ic) => {
-    setItem(() => (arr.filter(e => e.brand === ic)))
+  const newArr = [{id:0,
+    key: 'gender',
+  value:['male','female']},
+  {
+    id: 1,
+key:'type',
+value: ['hoodie','t-shirts','jacket'],
+  },{
+    id : 2,
+    key: 'brand',
+    value: ['Adidas','NYC','Luis Vuitton','Jersey'],
+  }]
+  const [Choice,setChoice] = useState(newArr)
+  const select = (j) => {
+    setItem(() => (arr.filter(e => e.brand === j)))
+  }
+  const checked = (i,j) => {
+    
   }
   const inputChanging = (event) => {
     const key = event.target.name
@@ -105,6 +110,7 @@ function App() {
   return (
     <div className="App">
       <Header setAdd={setAdd} Add={Add}/>
+      <Filter checked={checked} select={select} Item={Item} newArr={newArr} Choice={Choice} setChoice={setChoice}/>
       {Add ? <Panel inputChanging={inputChanging} addItem={addItem} Sp={Sp}/> : <Products select={select} selected={Item} arr={arr} add={Add} setItem={setItem}/> }
     </div>
   );
